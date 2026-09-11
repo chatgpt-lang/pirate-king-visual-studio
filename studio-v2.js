@@ -176,6 +176,22 @@ function enhanceSettings(){
 }
 formatNames.thumb='Miniature horizontale';
 const baseSettings=settings,baseFormats=formatTabs,baseRenderPreview=renderPreview;
+let levitationTimer=null,levitationAnimation=null;
+function restartProductLevitation(){
+ clearTimeout(levitationTimer);
+ if(levitationAnimation)levitationAnimation.cancel();
+ levitationAnimation=null;
+ const product=document.querySelector('#media');
+ product.style.translate='-50% -50%';
+ if(product.classList.contains('hidden')||active==='vote'||(active==='live'&&format==='post'))return;
+ levitationTimer=setTimeout(()=>{
+  levitationAnimation=product.animate([
+   {translate:'-50% -50%'},
+   {translate:'-50% calc(-50% - 11px)'},
+   {translate:'-50% -50%'}
+  ],{duration:3200,iterations:Infinity,easing:'ease-in-out'});
+ },1500);
+}
 settings=function(){baseSettings();enhanceSettings()};
 formatTabs=function(){baseFormats();enhanceFormats()};
 renderPreview=function(){
@@ -185,6 +201,7 @@ renderPreview=function(){
  const reflection=waterReflection.querySelector('img');
  reflection.src=states.card.image||'';
  waterReflection.classList.toggle('empty',!states.card.image);
+ restartProductLevitation();
  if(active==='card'&&format==='reel'&&states.card.topPull){
   const words=(states.card.topPullText||'TOP PULL').trim().split(/\s+/);
   const small=document.createElement('span'),large=document.createElement('strong');
