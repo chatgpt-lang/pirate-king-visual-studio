@@ -40,7 +40,7 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
   background-size:cover!important;
 }
 .premium-clouds{display:none;position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.card-mode.ambience-dark .premium-clouds{display:block}
+.card-mode.ambience-dark .premium-clouds,.card-mode.ambience-cloudsAnimated .premium-clouds{display:block}
 .premium-clouds-back{z-index:1}
 .premium-clouds-front{z-index:5}
 .premium-clouds-front .premium-cloud{filter:drop-shadow(0 0 7px #d79b2826) blur(.15px)}
@@ -49,7 +49,7 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
 .hero-cloud{position:absolute;left:var(--front-cloud-x,58%);top:var(--front-cloud-y,57%);width:var(--front-cloud-size,54%);height:auto;opacity:.92;filter:drop-shadow(0 0 12px #e2a62f40);transform:translate(-50%,-50%);animation:hero-cloud-breathe 8s ease-in-out infinite alternate}
 @keyframes hero-cloud-breathe{from{transform:translate(-50%,-50%) translate(-5px,3px) rotate(-1deg)}to{transform:translate(-50%,-50%) translate(8px,-5px) rotate(1deg)}}
 .gold-dust{display:none;position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none}
-.card-mode.ambience-dark .gold-dust{display:block}
+.card-mode.ambience-dark .gold-dust,.card-mode.ambience-cloudsAnimated .gold-dust{display:block}
 .gold-dust i{position:absolute;width:var(--size);height:var(--size);border-radius:50%;background:#f7c85b;box-shadow:0 0 5px #f4b935,0 0 11px #c68418;opacity:.15;animation:gold-speck var(--duration) ease-in-out var(--delay) infinite}
 @keyframes gold-speck{0%,100%{transform:translateY(0) scale(.55);opacity:.08}45%{opacity:.78}60%{transform:translateY(calc(var(--travel) * -1)) scale(1.15);opacity:.48}}
 @media(prefers-reduced-motion:reduce){.premium-cloud,.hero-cloud,.gold-dust i{animation:none!important}}
@@ -67,6 +67,30 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
 .cloud-selection{position:absolute;z-index:20;border:1px dashed #f4c430;pointer-events:none}
 .cloud-selection i{position:absolute;right:-7px;bottom:-7px;width:16px;height:16px;border:2px solid #071126;border-radius:50%;background:#f4c430;box-shadow:0 0 0 1px #fff;cursor:nwse-resize;pointer-events:auto;touch-action:none}
 .layout-auto-note{margin-top:14px;padding:10px 12px;border:1px solid #f4c43055;border-radius:7px;background:#f4c43010;color:#f4c430;font-size:10px;line-height:1.45}
+
+/* Carte · nouveaux fonds animés */
+.card-mode.ambience-cloudsAnimated .visual-bg{background:#030303 radial-gradient(ellipse at 50% 48%,#382918 0,#17110b 34%,#020202 82%)!important}
+.card-mode.ambience-cloudsAnimated .manga-lines{display:none}
+.card-mode.ambience-dark .premium-cloud,.card-mode.ambience-dark .hero-cloud{animation:none!important}
+.style-card[data-style=cloudsAnimated] i{background:radial-gradient(circle,#47321b,#050505)!important}
+.style-card[data-style=fire] i{background:linear-gradient(0deg,#f45113 0,#5b1307 25%,#090403 68%)!important}
+
+.sakura-petals,.fire-effects{display:none;position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.card-mode.ambience-sakura .visual-bg{background:radial-gradient(circle at 56% 47%,#521a2d 0,#240a15 37%,#080407 78%),linear-gradient(145deg,#030203,#3e0b24)!important}
+.card-mode.ambience-sakura .manga-lines{display:none}
+.card-mode.ambience-sakura .sakura-petals{display:block}.sakura-petals-back{z-index:3}.sakura-petals-front{z-index:6}
+.sakura-petals-back i{opacity:.44;filter:blur(.45px)}.sakura-petals-front i{opacity:.84;filter:drop-shadow(0 0 4px #ffb4d780)}
+.sakura-petals i{position:absolute;left:var(--x);top:-8%;width:var(--size);aspect-ratio:1.38;border-radius:70% 18% 70% 25%;background:linear-gradient(135deg,#fff0f7,#f495bb 58%,#cf4f83);box-shadow:0 0 5px #ffb4d780;animation:sakura-fall var(--duration) linear var(--delay) infinite;will-change:transform}
+@keyframes sakura-fall{0%{translate:0 -10vh;rotate:0deg}45%{translate:var(--travel) 55vh;rotate:180deg}100%{translate:var(--travel) 116vh;rotate:var(--spin)}}
+
+.card-mode.ambience-fire .visual-bg{background:radial-gradient(ellipse at 50% 86%,#8a2409 0,#3a0c05 22%,#160604 47%,#030202 83%),linear-gradient(145deg,#020202,#3b0d05)!important}
+.card-mode.ambience-fire .manga-lines{display:none}
+.card-mode.ambience-fire .fire-effects{display:block;z-index:6}
+.flame-bed,.embers{position:absolute;inset:0}.flame-bed i{position:absolute;bottom:-22px;width:17%;height:var(--height);border-radius:48% 52% 18% 18%;transform-origin:50% 100%;background:radial-gradient(ellipse at 50% 92%,#ffd36a 0 15%,#ff6b19 38%,#d82009 63%,transparent 70%);filter:blur(2px);mix-blend-mode:screen;animation:flame-dance var(--duration) ease-in-out var(--delay) infinite alternate}.embers i{position:absolute;width:var(--size);height:var(--size);border-radius:50%;background:#ff5a19;box-shadow:0 0 6px #ff3b0a,0 0 12px #ff9a32;opacity:.78;animation:ember-rise var(--duration) ease-out var(--delay) infinite}
+@keyframes flame-dance{from{transform:scale(.78,1) skewX(-7deg);opacity:.54}to{transform:translateY(-15px) scale(1.08,1.24) skewX(8deg);opacity:.92}}
+@keyframes ember-rise{0%{transform:translate(0,0) scale(.45);opacity:0}15%{opacity:.9}100%{transform:translate(var(--drift),var(--rise)) scale(.1);opacity:0}}
+.artboard.fade.card-mode.ambience-cloudsAnimated .media,.artboard.fade.card-mode.ambience-sakura .media,.artboard.fade.card-mode.ambience-fire .media{animation:card-intro-zoom 1s cubic-bezier(.16,.84,.22,1) both}
+@media(prefers-reduced-motion:reduce){.sakura-petals i,.flame-bed i,.embers i{animation:none!important}}
 .contest .visual-bg{background-image:url('assets/backgrounds/concours-clouds.png');background-position:center;background-size:cover;background-repeat:no-repeat}.live .visual-bg{background-image:url('assets/backgrounds/live-speed-lines.png');background-position:center;background-size:cover;background-repeat:no-repeat}.contest .manga-lines,.live .manga-lines{display:none}.contest .media,.live .media{filter:drop-shadow(0 12px 9px #233f7930)}
 .contest .media{margin-top:50px}
 .contest .headline{transform:translateY(-30px)}
