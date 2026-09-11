@@ -95,7 +95,7 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
 .card-mode.ambience-fire .visual-bg{background:radial-gradient(ellipse at 50% 86%,#8a2409 0,#3a0c05 22%,#160604 47%,#030202 83%),linear-gradient(145deg,#020202,#3b0d05)!important}
 .card-mode.ambience-fire .manga-lines{display:none}
 .card-mode.ambience-fire .fire-effects{display:block;z-index:6}
-.card-mode.ambience-fire .media{top:calc(54% + 35px)}
+.card-mode.ambience-fire .media{top:calc(54% + 40px);width:calc(52% - 10px);height:calc(53% - 10px)}
 .flame-images,.embers{position:absolute;inset:0}.flame-images{z-index:1;overflow:hidden}.flame-images img{position:absolute;bottom:-8%;width:68%;height:56%;object-fit:contain;object-position:center bottom;transform-origin:50% 100%;filter:saturate(1.22) contrast(1.05) drop-shadow(0 -7px 15px #ff3d0a73);mix-blend-mode:screen}.flame-left{left:-15%;animation:flame-image-left 3.1s ease-in-out infinite alternate}.flame-right{right:-15%;animation:flame-image-right 2.7s ease-in-out -.8s infinite alternate}.embers{z-index:2}.embers i{position:absolute;width:var(--size);height:var(--size);border-radius:45% 55% 60% 40%;background:#ff6a22;box-shadow:0 0 8px #ff3b0a,0 0 18px #ff9a32;opacity:.82;animation:ember-rise var(--duration) ease-out var(--delay) infinite}
 @keyframes flame-image-left{from{transform:scale(.94,1) skewX(-2deg);opacity:.62}50%{transform:translate(10px,-12px) scale(1.04,1.1) skewX(4deg);opacity:.88}to{transform:translate(-5px,-20px) scale(.98,1.16) skewX(-5deg);opacity:.72}}
 @keyframes flame-image-right{from{transform:scale(1,1.02) skewX(3deg);opacity:.58}50%{transform:translate(-12px,-14px) scale(.95,1.12) skewX(-4deg);opacity:.9}to{transform:translate(7px,-22px) scale(1.06,1.18) skewX(5deg);opacity:.7}}
