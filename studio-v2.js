@@ -178,6 +178,20 @@ formatNames.thumb='Miniature horizontale';
 const baseSettings=settings,baseFormats=formatTabs,baseRenderPreview=renderPreview;
 settings=function(){baseSettings();enhanceSettings()};
 formatTabs=function(){baseFormats();enhanceFormats()};
-renderPreview=function(){baseRenderPreview();art.dataset.scene=states[active].backgroundPreset||'';cloudSelection.classList.add('hidden');const reflection=waterReflection.querySelector('img');reflection.src=states.card.image||'';waterReflection.classList.toggle('empty',!states.card.image);if(active==='vote')document.querySelector('#vTitle').innerHTML='QUELLE CARTE<br><span>TU PRÉFÈRES ?</span>'};
+renderPreview=function(){
+ baseRenderPreview();
+ art.dataset.scene=states[active].backgroundPreset||'';
+ cloudSelection.classList.add('hidden');
+ const reflection=waterReflection.querySelector('img');
+ reflection.src=states.card.image||'';
+ waterReflection.classList.toggle('empty',!states.card.image);
+ if(active==='card'&&format==='reel'&&states.card.topPull){
+  const words=(states.card.topPullText||'TOP PULL').trim().split(/\s+/);
+  const small=document.createElement('span'),large=document.createElement('strong');
+  small.textContent=words.shift()||'TOP';large.textContent=words.join(' ')||'PULL';
+  document.querySelector('#topPull').replaceChildren(small,large);
+ }
+ if(active==='vote')document.querySelector('#vTitle').innerHTML='QUELLE CARTE<br><span>TU PRÉFÈRES ?</span>';
+};
 renderAll();
 })();
