@@ -55,6 +55,7 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
 @media(prefers-reduced-motion:reduce){.premium-cloud,.hero-cloud,.gold-dust i{animation:none!important}}
 .artboard.fade.card-mode .media{animation:card-intro-zoom .82s cubic-bezier(.18,.82,.22,1) both}
 .artboard.reel.card-mode .top-pull{transform:translateY(30px)}
+.artboard.reel.card-mode .media{top:calc(54% + 40px)}
 .artboard.post.card-mode .top-pull{transform:translateY(45px)}
 .artboard.reel.card-mode .top-pull span,.artboard.reel.card-mode .top-pull strong{display:block;font-family:inherit;font-weight:inherit;transform:translateY(5px)}.artboard.reel.card-mode .top-pull span{font-size:64px;line-height:.82;letter-spacing:.08em}.artboard.reel.card-mode .top-pull strong{font-size:88px;line-height:.78;letter-spacing:-.035em}
 .artboard.post.card-mode.ambience-fire .top-pull{transform:translateY(45px)}
