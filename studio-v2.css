@@ -189,3 +189,4 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
 .artboard.reel.live .lot-copy{left:50%;right:auto;translate:-50%;width:max-content;max-width:88%;padding:9px 18px 8px;border-radius:14px;background:#e21b23;color:#fff;box-shadow:0 5px 14px #233f7930;white-space:nowrap}
 .artboard.post.live .media{top:calc(61% + 25px);height:calc(31% + 20px)}
 .artboard.post.live .subhead{top:calc(39% + 15px)}
+.asset-drag-note{display:block;margin-top:9px;color:#8fa2c5;font-size:9px;text-align:center}.asset[draggable=true]{cursor:grab}.asset[draggable=true]:active{cursor:grabbing}.artboard.card-drop-ready:after{content:"DÉPOSEZ VOTRE CARTE";position:absolute;z-index:40;inset:12px;border:2px dashed #f4c430;border-radius:12px;background:#071126a8;color:#f4c430;display:grid;place-items:center;font:400 22px "Titan One",sans-serif;letter-spacing:.04em;pointer-events:none}

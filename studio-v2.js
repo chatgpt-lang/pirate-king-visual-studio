@@ -153,7 +153,7 @@ editableClouds().forEach((cloud,index)=>{
 
 function enhanceFormats(){document.querySelectorAll('.format').forEach(b=>{if(!b.querySelector('.ratio-icon'))b.insertAdjacentHTML('afterbegin','<i class="ratio-icon"></i>')})}
 function useAsset(asset){const s=states[active];if(active==='vote'){if(!s.imageA)s.imageA=asset.src;else if(!s.imageB)s.imageB=asset.src;else s.imageA=asset.src}else s.image=asset.src;renderPreview();renderAll()}
-function bankHTML(){return `<div class="asset-bank"><div class="asset-bank-title">BANQUE ONE PIECE</div><div class="asset-grid">${assets.map((a,i)=>`<button class="asset" data-asset="${i}" title="${a.label}"><img src="${a.src}" alt="${a.label}"></button>`).join('')}</div></div>`}
+function bankHTML(){return `<div class="asset-bank"><div class="asset-bank-title">BANQUE ONE PIECE</div><div class="asset-grid">${assets.map((a,i)=>`<button class="asset" data-asset="${i}" title="${a.label}" draggable="true"><img src="${a.src}" alt="${a.label}" draggable="false"></button>`).join('')}</div><small class="asset-drag-note">Cliquez ou glissez une carte sur l’aperçu</small></div>`}
 function previewFor(drop,key){const src=states[active][key];if(!src)return;drop.insertAdjacentHTML('afterend',`<div class="upload-preview"><img src="${src}" alt=""><span>Image ajoutée<br>Cliquer sur la zone pour remplacer</span><button class="upload-delete" data-delete-image="${key}" title="Supprimer">×</button></div>`)}
 function enhanceSettings(){
  if(active==='contest'||active==='live'){
@@ -165,7 +165,10 @@ function enhanceSettings(){
  if(active==='vote')document.querySelectorAll('.field').forEach(field=>{const label=field.querySelector('label')?.textContent;if(label==='Nom A'||label==='Nom B')field.remove()});
  document.querySelectorAll('.dropzone').forEach((d,i)=>{if(!d.previousElementSibling?.classList.contains('inline-section-title'))d.insertAdjacentHTML('beforebegin',`<div class="inline-section-title">${active==='vote'?'CARTE '+(i?'B':'A'):active==='live'?'IMAGE / PRODUIT':'IMAGE / CARTE'}</div>`)});
  const first=document.querySelector('.dropzone');if(first&&!document.querySelector('.asset-bank'))first.closest('.section').insertAdjacentHTML('beforeend',bankHTML());
- document.querySelectorAll('.asset').forEach(b=>b.onclick=()=>useAsset(assets[+b.dataset.asset]));
+ document.querySelectorAll('.asset').forEach(b=>{
+  b.onclick=()=>useAsset(assets[+b.dataset.asset]);
+  b.ondragstart=event=>{event.dataTransfer.effectAllowed='copy';event.dataTransfer.setData('application/x-pirate-asset',b.dataset.asset)};
+ });
  document.querySelectorAll('[data-background]').forEach(b=>b.onclick=()=>{states[active].backgroundPreset=b.dataset.background;renderAll()});
  const drops=[...document.querySelectorAll('.dropzone')];if(active==='vote'){if(drops[0])previewFor(drops[0],'imageA');if(drops[1])previewFor(drops[1],'imageB')}else if(drops[0])previewFor(drops[0],'image');
  document.querySelectorAll('[data-delete-image]').forEach(b=>b.onclick=()=>{states[active][b.dataset.deleteImage]=null;renderAll()});
@@ -173,7 +176,21 @@ function enhanceSettings(){
  if(!document.querySelector('.palette-reset'))document.querySelector('.swatches').insertAdjacentHTML('afterend','<button class="btn palette-reset">Couleurs Pirate King</button>');
  document.querySelector('.palette-reset').onclick=()=>{Object.assign(states[active],{titleColor:active==='card'?'#ffffff':'#e21b23',secondaryColor:'#233f79',accentColor:'#f4c430',bgColor:active==='vote'?'#fff4e6':active==='card'?'#17191d':'#f8fafc'});renderAll()};
  const gen=document.querySelector('#generate');gen.textContent='Générer le visuel';
+ if(active==='card'){
+  const topPullToggle=[...document.querySelectorAll('.toggle-row')].find(row=>row.textContent.includes('TOP PULL'));
+  if(topPullToggle)topPullToggle.firstChild.textContent='Afficher / masquer TOP PULL';
+ }
 }
+art.addEventListener('dragover',event=>{if(active!=='card')return;event.preventDefault();event.dataTransfer.dropEffect='copy';art.classList.add('card-drop-ready')});
+art.addEventListener('dragleave',event=>{if(!art.contains(event.relatedTarget))art.classList.remove('card-drop-ready')});
+art.addEventListener('drop',event=>{
+ if(active!=='card')return;
+ event.preventDefault();art.classList.remove('card-drop-ready');
+ const assetIndex=event.dataTransfer.getData('application/x-pirate-asset');
+ if(assetIndex!==''){useAsset(assets[+assetIndex]);return}
+ const file=[...event.dataTransfer.files].find(item=>item.type.startsWith('image/'));
+ if(file)loadFile(file,'image');
+});
 formatNames.thumb='Miniature horizontale';
 const baseSettings=settings,baseFormats=formatTabs,baseRenderPreview=renderPreview;
 let levitationTimer=null,levitationAnimation=null;
