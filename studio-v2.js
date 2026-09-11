@@ -3,8 +3,8 @@ const assets=[
  {src:'assets/one-piece/box-op17.png',label:'Box OP17',kind:'product'},
  {src:'assets/one-piece/booster.png',label:'Booster OP17',kind:'product'},
  {src:'assets/one-piece/carte-manga.png',label:'Carte manga',kind:'card'},
- {src:'assets/one-piece/nico-robin.jpeg',label:'Nico Robin',kind:'card'},
- {src:'assets/one-piece/franky-op18.webp',label:'Franky OP18',kind:'card'}
+ {src:'assets/one-piece/luffy.png',label:'Luffy',kind:'card'},
+ {src:'assets/one-piece/5000.png',label:'Franky',kind:'card'}
 ];
 Object.assign(states.contest,{image:assets[1].src,title:'GIVE ABONNÉ',subtitle:'100% GRATUIT',backgroundPreset:'clouds'});
 Object.assign(states.live,{image:assets[0].src,title:'OP17 BOXBREAK',subtitle:'1€ PDD',badge:'',showBadge:false,backgroundPreset:'lightning'});
