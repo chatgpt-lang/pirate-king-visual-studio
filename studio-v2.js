@@ -63,7 +63,7 @@ art.querySelector('.media').insertAdjacentElement('beforebegin',sakuraPetalsBack
 const fireEffects=document.createElement('div');
 fireEffects.className='fire-effects';
 fireEffects.setAttribute('aria-hidden','true');
-fireEffects.innerHTML=`<div class="flame-bed">${Array.from({length:13},(_,i)=>`<i style="left:${i*8-3}%;--height:${randomBetween(34,86)}px;--duration:${randomBetween(1.2,2.5)}s;--delay:${-randomBetween(0,2)}s"></i>`).join('')}</div><div class="embers">${Array.from({length:44},()=>`<i style="left:${randomBetween(2,98)}%;bottom:${randomBetween(-4,20)}%;--size:${randomBetween(1.5,5)}px;--drift:${randomBetween(-45,45)}px;--rise:${-randomBetween(80,360)}px;--duration:${randomBetween(3,8)}s;--delay:${-randomBetween(0,8)}s"></i>`).join('')}</div>`;
+fireEffects.innerHTML=`<div class="flame-bed">${Array.from({length:17},(_,i)=>`<i style="left:${i*6-3}%;--height:${randomBetween(48,124)}px;--lean:${randomBetween(-13,13)}deg;--duration:${randomBetween(1.35,2.8)}s;--delay:${-randomBetween(0,2.5)}s"></i>`).join('')}</div><div class="embers">${Array.from({length:62},()=>`<i style="left:${randomBetween(2,98)}%;bottom:${randomBetween(-5,78)}%;--size:${randomBetween(2.5,8)}px;--drift:${randomBetween(-65,65)}px;--rise:${-randomBetween(90,390)}px;--duration:${randomBetween(3.5,9)}s;--delay:${-randomBetween(0,9)}s"></i>`).join('')}</div>`;
 sakuraPetals.insertAdjacentElement('afterend',fireEffects);
 const liveEffects=document.createElement('div');
 liveEffects.className='live-effects';
@@ -82,7 +82,7 @@ cloudSelection.className='cloud-selection hidden';
 cloudSelection.innerHTML='<i title="Redimensionner"></i>';
 art.appendChild(cloudSelection);
 const editableClouds=()=>[...art.querySelectorAll('.premium-cloud,.hero-cloud')];
-const cloudLayoutKey='pirate-king-premium-cloud-layout-v1';
+const cloudLayoutKey='pirate-king-premium-cloud-layout-v2';
 function saveCloudLayout(){
  const layout=editableClouds().map(cloud=>({src:cloud.getAttribute('src'),left:cloud.style.left,top:cloud.style.top,width:cloud.style.width}));
  try{localStorage.setItem(cloudLayoutKey,JSON.stringify(layout))}catch(e){}
@@ -134,7 +134,7 @@ const finalCloudLayout=[
  [0,-15,-7.5,49.7],[0,74.9,11.5,51.5],[3,56,88.3,43.8],[4,-17.2,61.8,43.1],
  [2,65,-4.8,45.6],[1,72.5,10.8,34],[2,70.9,86.6,37],[1,-40.7,73.2,75.5],
  [0,69,-7.2,35.3],[3,84.9,64.4,37.4],[4,-0.9,59.9,29.7],[1,58.5,65.4,33.3],
- [4,4.7,24.9,33.4],[0,-15.7,17.6,35.2],[0,61.7,65.9,54]
+ [4,4.7,24.9,33.4],[0,-15.7,17.6,35.2],[0,70,65.9,54]
 ];
 editableClouds().forEach((cloud,index)=>{
  const item=finalCloudLayout[index];if(!item)return;
