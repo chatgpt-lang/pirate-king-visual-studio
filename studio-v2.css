@@ -56,6 +56,7 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
 .artboard.fade.card-mode .media{animation:card-intro-zoom .82s cubic-bezier(.18,.82,.22,1) both}
 .artboard.reel.card-mode .top-pull{transform:translateY(30px)}
 .artboard.reel.card-mode .top-pull span,.artboard.reel.card-mode .top-pull strong{display:block;font-family:inherit;font-weight:inherit}.artboard.reel.card-mode .top-pull span{font-size:54px;line-height:.82;letter-spacing:.08em;transform:translateY(10px)}.artboard.reel.card-mode .top-pull strong{font-size:98px;line-height:.78;letter-spacing:-.035em;transform:translateY(20px)}
+.artboard.reel.card-mode.ambience-fire .top-pull span{font-size:64px;transform:translateY(-5px)}.artboard.reel.card-mode.ambience-fire .top-pull strong{font-size:88px;transform:translateY(5px)}
 .artboard.fade.card-mode .premium-cloud{animation:cloud-float var(--duration) ease-in-out var(--delay) infinite alternate,cloud-converge .92s cubic-bezier(.2,.78,.22,1) var(--intro-delay,0s) both}
 .artboard.fade.card-mode .hero-cloud{animation:hero-cloud-breathe 8s ease-in-out 1.05s infinite alternate,cloud-converge 1s cubic-bezier(.2,.78,.22,1) .1s both}
 @keyframes card-intro-zoom{0%{opacity:0;transform:translateY(var(--card-y,0)) scale(.62) rotate(var(--card-rotate,0deg));filter:drop-shadow(0 0 0 #0000)}68%{opacity:1;transform:translateY(var(--card-y,0)) scale(1.035) rotate(var(--card-rotate,0deg))}100%{opacity:1;transform:translateY(var(--card-y,0)) scale(var(--card-scale,1)) rotate(var(--card-rotate,0deg))}}
