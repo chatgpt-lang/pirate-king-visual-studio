@@ -69,6 +69,7 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
 .layout-auto-note{margin-top:14px;padding:10px 12px;border:1px solid #f4c43055;border-radius:7px;background:#f4c43010;color:#f4c430;font-size:10px;line-height:1.45}
 
 /* Carte · nouveaux fonds animés */
+.card-mode .media{filter:drop-shadow(0 12px 12px #0008) drop-shadow(0 0 var(--glow,12px) color-mix(in srgb,var(--yellow) 62%,transparent))!important}
 .card-mode.ambience-cloudsAnimated .visual-bg{background:#030303 radial-gradient(ellipse at 50% 48%,#382918 0,#17110b 34%,#020202 82%)!important}
 .card-mode.ambience-cloudsAnimated .manga-lines{display:none}
 .card-mode.ambience-dark .premium-cloud,.card-mode.ambience-dark .hero-cloud{animation:none!important}
@@ -132,13 +133,21 @@ body{background:#061027;color:#fff}.topbar{background:#08142d;border-color:#2032
 .vote-mode .choice.a:hover img{transform:perspective(760px) rotateY(11deg) rotateZ(-4deg) translateX(9%) scale(1.04)}
 .vote-mode .choice.b:hover img{transform:perspective(760px) rotateY(-11deg) rotateZ(4deg) translateX(-9%) scale(1.04)}
 .vote-mode .team{display:none}
-.vote-mode .vs{width:auto;height:auto;border-radius:0;background:transparent;font-family:"Titan One","Cooper Black",Cooper,Georgia,serif;font-size:42px;font-weight:400;color:#fff;text-shadow:3px 0 0 #e21b23,-3px 0 0 #e21b23,0 3px 0 #e21b23,0 -3px 0 #e21b23,2px 2px 0 #e21b23,-2px -2px 0 #e21b23;rotate:-6deg}
+.vote-mode .vs{width:auto;height:auto;border-radius:0;background:transparent;font-family:"Titan One","Cooper Black",Cooper,Georgia,serif;font-size:42px;font-weight:400;color:var(--yellow);text-shadow:3px 0 0 #fff,-3px 0 0 #fff,0 3px 0 #fff,0 -3px 0 #fff,2px 2px 0 #fff,-2px -2px 0 #fff;rotate:-6deg}
 .vote-mode .cta{left:14%;right:14%;bottom:4%;padding:13px 18px;border:0;border-radius:999px;background:#e21b23;color:#fff;font-family:"Titan One","Cooper Black",Cooper,Georgia,serif;font-size:18px;font-weight:400;letter-spacing:.02em;box-shadow:0 5px 0 #233f79;text-transform:uppercase}
-.artboard.fade.vote-mode .choice.a img{animation:vote-card-from-left .82s cubic-bezier(.18,.82,.22,1) .18s both}
-.artboard.fade.vote-mode .choice.b img{animation:vote-card-from-right .82s cubic-bezier(.18,.82,.22,1) .24s both}
+.artboard.fade.vote-mode .choice.a img{animation:vote-card-from-left .56s cubic-bezier(.16,.86,.18,1) .05s both}
+.artboard.fade.vote-mode .choice.b img{animation:vote-card-from-right .56s cubic-bezier(.16,.86,.18,1) .09s both}
+.artboard.fade.vote-mode .headline{animation:vote-title-in .48s cubic-bezier(.16,.88,.2,1) .04s both}
+.artboard.fade.vote-mode .vote-hat{animation:vote-hat-in .54s cubic-bezier(.16,.88,.2,1) .1s both}
+.artboard.fade.vote-mode .vs{animation:vote-vs-in .4s cubic-bezier(.2,1.25,.3,1) .32s both}
+.artboard.fade.vote-mode .cta{animation:vote-cta-in .46s cubic-bezier(.16,.88,.2,1) .4s both}
 @keyframes vote-card-from-left{from{opacity:0;transform:perspective(760px) translateX(-170px) rotateY(35deg) rotateZ(-13deg) scale(.82)}to{opacity:1;transform:perspective(760px) rotateY(18deg) rotateZ(-7deg) translateX(6%)}}
 @keyframes vote-card-from-right{from{opacity:0;transform:perspective(760px) translateX(170px) rotateY(-35deg) rotateZ(13deg) scale(.82)}to{opacity:1;transform:perspective(760px) rotateY(-18deg) rotateZ(7deg) translateX(-6%)}}
-@media(prefers-reduced-motion:reduce){.artboard.fade.vote-mode .choice img{animation:none!important}}
+@keyframes vote-title-in{from{opacity:0;transform:translateY(-28px) scale(.88)}to{opacity:1;transform:none}}
+@keyframes vote-hat-in{from{opacity:0;transform:translate(-45px,-28px) rotate(-18deg) scale(.55)}to{opacity:1;transform:none}}
+@keyframes vote-vs-in{from{opacity:0;transform:scale(.25) rotate(-22deg)}70%{transform:scale(1.16) rotate(5deg)}to{opacity:1;transform:none}}
+@keyframes vote-cta-in{from{opacity:0;transform:translateY(34px) scale(.9)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.artboard.fade.vote-mode .choice img,.artboard.fade.vote-mode .headline,.artboard.fade.vote-mode .vote-hat,.artboard.fade.vote-mode .vs,.artboard.fade.vote-mode .cta{animation:none!important}}
 
 /* Miniature horizontale · composition panoramique F2K */
 .artboard.thumb .visual-logo{left:9%;top:5%;translate:0;width:16%;height:34%}

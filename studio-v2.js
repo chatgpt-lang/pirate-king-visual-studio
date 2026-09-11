@@ -53,12 +53,12 @@ art.querySelector('.media').insertAdjacentElement('afterend',premiumCloudsFront)
 const sakuraPetals=document.createElement('div');
 sakuraPetals.className='sakura-petals sakura-petals-front';
 sakuraPetals.setAttribute('aria-hidden','true');
-sakuraPetals.innerHTML=Array.from({length:18},()=>`<i style="--x:${randomBetween(-18,72)}%;--travel:${randomBetween(210,480)}px;--size:${randomBetween(7,18)}px;--duration:${randomBetween(5.5,10)}s;--delay:${-randomBetween(0,12)}s;--spin:${randomBetween(220,760)}deg"></i>`).join('');
+sakuraPetals.innerHTML=Array.from({length:30},()=>`<i style="--x:${randomBetween(-8,96)}%;--travel:${randomBetween(28,105)}px;--size:${randomBetween(10,25)}px;--duration:${randomBetween(6,11)}s;--delay:${-randomBetween(0,14)}s;--spin:${randomBetween(220,760)}deg"></i>`).join('');
 art.querySelector('.media').insertAdjacentElement('afterend',sakuraPetals);
 const sakuraPetalsBack=document.createElement('div');
 sakuraPetalsBack.className='sakura-petals sakura-petals-back';
 sakuraPetalsBack.setAttribute('aria-hidden','true');
-sakuraPetalsBack.innerHTML=Array.from({length:22},()=>`<i style="--x:${randomBetween(-22,78)}%;--travel:${randomBetween(180,430)}px;--size:${randomBetween(4,11)}px;--duration:${randomBetween(7,13)}s;--delay:${-randomBetween(0,14)}s;--spin:${randomBetween(180,680)}deg"></i>`).join('');
+sakuraPetalsBack.innerHTML=Array.from({length:36},()=>`<i style="--x:${randomBetween(-10,98)}%;--travel:${randomBetween(22,92)}px;--size:${randomBetween(6,16)}px;--duration:${randomBetween(8,14)}s;--delay:${-randomBetween(0,16)}s;--spin:${randomBetween(180,680)}deg"></i>`).join('');
 art.querySelector('.media').insertAdjacentElement('beforebegin',sakuraPetalsBack);
 const fireEffects=document.createElement('div');
 fireEffects.className='fire-effects';
