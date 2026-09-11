@@ -10,6 +10,8 @@ Object.assign(states.contest,{image:assets[1].src,title:'GIVE ABONNÉ',subtitle:
 Object.assign(states.live,{image:assets[0].src,title:'OP17 BOXBREAK',subtitle:'1€ PDD',badge:'',showBadge:false,backgroundPreset:'speed'});
 Object.assign(states.card,{image:assets[2].src,bottom:'ONE PIECE CARD GAME',frontCloudX:58,frontCloudY:57,frontCloudSize:54});
 Object.assign(states.vote,{imageA:assets[3].src,imageB:assets[4].src,title:'QUELLE CARTE TU PRÉFÈRES ?',teamA:'',teamB:'',cta:'VOTE EN COMMENTAIRE'});
+states.contest.formats=['reel','post'];
+states.live.formats=['reel','post'];
 ['contest','live','card','vote'].forEach(k=>Object.assign(defaults[k],structuredClone(states[k])));
 
 const sidebar=document.querySelector('.sidebar');
