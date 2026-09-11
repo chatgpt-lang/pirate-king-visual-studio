@@ -200,14 +200,17 @@ function restartProductLevitation(){
  levitationAnimation=null;
  const product=document.querySelector('#media');
  product.style.translate='-50% -50%';
+ product.style.willChange='translate';
  if(product.classList.contains('hidden')||active==='vote'||(active==='live'&&format==='post'))return;
  levitationTimer=setTimeout(()=>{
   levitationAnimation=product.animate([
-   {translate:'-50% -50%'},
-   {translate:'-50% calc(-50% - 11px)'},
-   {translate:'-50% -50%'}
-  ],{duration:5200,iterations:Infinity,easing:'ease-in-out'});
- },850);
+   {translate:'-50% -50%',offset:0},
+   {translate:'-50% calc(-50% - 4px)',offset:.25},
+   {translate:'-50% calc(-50% - 8px)',offset:.5},
+   {translate:'-50% calc(-50% - 4px)',offset:.75},
+   {translate:'-50% -50%',offset:1}
+  ],{duration:3600,iterations:Infinity,easing:'linear'});
+ },650);
 }
 settings=function(){baseSettings();enhanceSettings()};
 formatTabs=function(){baseFormats();enhanceFormats()};
