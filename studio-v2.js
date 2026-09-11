@@ -53,7 +53,7 @@ art.querySelector('.media').insertAdjacentElement('afterend',premiumCloudsFront)
 const sakuraPetals=document.createElement('div');
 sakuraPetals.className='sakura-petals sakura-petals-front';
 sakuraPetals.setAttribute('aria-hidden','true');
-sakuraPetals.innerHTML=Array.from({length:30},()=>`<i style="--x:${randomBetween(-8,96)}%;--travel:${randomBetween(28,105)}px;--size:${randomBetween(10,25)}px;--duration:${randomBetween(6,11)}s;--delay:${-randomBetween(0,14)}s;--spin:${randomBetween(220,760)}deg"></i>`).join('');
+sakuraPetals.innerHTML=Array.from({length:18},()=>`<i style="--x:${randomBetween(-12,90)}%;--travel:${randomBetween(70,155)}px;--size:${randomBetween(16,32)}px;--duration:${randomBetween(6.5,11.5)}s;--delay:${-randomBetween(0,14)}s;--spin:${randomBetween(220,760)}deg"></i>`).join('');
 art.querySelector('.media').insertAdjacentElement('afterend',sakuraPetals);
 const waterReflection=document.createElement('div');
 waterReflection.className='water-reflection';
@@ -63,7 +63,7 @@ sakuraPetals.insertAdjacentElement('beforebegin',waterReflection);
 const sakuraPetalsBack=document.createElement('div');
 sakuraPetalsBack.className='sakura-petals sakura-petals-back';
 sakuraPetalsBack.setAttribute('aria-hidden','true');
-sakuraPetalsBack.innerHTML=Array.from({length:36},()=>`<i style="--x:${randomBetween(-10,98)}%;--travel:${randomBetween(22,92)}px;--size:${randomBetween(6,16)}px;--duration:${randomBetween(8,14)}s;--delay:${-randomBetween(0,16)}s;--spin:${randomBetween(180,680)}deg"></i>`).join('');
+sakuraPetalsBack.innerHTML=Array.from({length:38},()=>`<i style="--x:${randomBetween(-14,94)}%;--travel:${randomBetween(52,128)}px;--size:${randomBetween(6,15)}px;--duration:${randomBetween(8,14)}s;--delay:${-randomBetween(0,16)}s;--spin:${randomBetween(180,680)}deg"></i>`).join('');
 art.querySelector('.media').insertAdjacentElement('beforebegin',sakuraPetalsBack);
 const fireEffects=document.createElement('div');
 fireEffects.className='fire-effects';
