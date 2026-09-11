@@ -189,8 +189,8 @@ function restartProductLevitation(){
    {translate:'-50% -50%'},
    {translate:'-50% calc(-50% - 11px)'},
    {translate:'-50% -50%'}
-  ],{duration:3200,iterations:Infinity,easing:'ease-in-out'});
- },1500);
+  ],{duration:5200,iterations:Infinity,easing:'ease-in-out'});
+ },850);
 }
 settings=function(){baseSettings();enhanceSettings()};
 formatTabs=function(){baseFormats();enhanceFormats()};
