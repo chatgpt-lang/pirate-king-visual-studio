@@ -89,7 +89,7 @@ cloudSelection.className='cloud-selection hidden';
 cloudSelection.innerHTML='<i title="Redimensionner"></i>';
 art.appendChild(cloudSelection);
 const editableClouds=()=>[...art.querySelectorAll('.premium-cloud,.hero-cloud')];
-const cloudLayoutKey='pirate-king-premium-cloud-layout-v2';
+const cloudLayoutKey='pirate-king-premium-cloud-layout-v3';
 function saveCloudLayout(){
  const layout=editableClouds().map(cloud=>({src:cloud.getAttribute('src'),left:cloud.style.left,top:cloud.style.top,width:cloud.style.width}));
  try{localStorage.setItem(cloudLayoutKey,JSON.stringify(layout))}catch(e){}
@@ -141,7 +141,7 @@ const finalCloudLayout=[
  [0,-15,-7.5,49.7],[0,74.9,11.5,51.5],[3,56,88.3,43.8],[4,-17.2,61.8,43.1],
  [2,65,-4.8,45.6],[1,72.5,10.8,34],[2,70.9,86.6,37],[1,-40.7,73.2,75.5],
  [0,69,-7.2,35.3],[3,84.9,64.4,37.4],[4,-0.9,59.9,29.7],[1,58.5,65.4,33.3],
- [4,4.7,24.9,33.4],[0,-15.7,17.6,35.2],[0,70,65.9,54]
+ [4,4.7,24.9,33.4],[0,-15.7,17.6,35.2],[0,78.3,65.9,54]
 ];
 editableClouds().forEach((cloud,index)=>{
  const item=finalCloudLayout[index];if(!item)return;
